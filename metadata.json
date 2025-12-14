@@ -1,0 +1,5 @@
+{
+  "name": "PSP TV CSS Generator",
+  "description": "An application to visually generate custom CSS and MOTD HTML for Cytube-like channels. Customize colors, fonts, user styles, and more, then copy the generated code.",
+  "requestFramePermissions": []
+}

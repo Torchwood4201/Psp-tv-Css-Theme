@@ -1,0 +1,219 @@
+body {
+  margin: 0;
+  background-color: #0c0a1a; /* A very dark blue/purple as the base */
+  color: #e5e7eb; /* Default text color */
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.background-3d {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.nebula {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at 70% 30%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 20% 80%, rgba(74, 222, 128, 0.1) 0%, transparent 40%),
+              radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 60%);
+  mix-blend-mode: screen;
+  animation: nebula-drift 120s infinite linear alternate;
+  z-index: -2;
+}
+
+@keyframes nebula-drift {
+  from { transform: rotate(0deg) scale(1.5); }
+  to { transform: rotate(360deg) scale(2); }
+}
+
+
+.scene {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotate-scene 80s infinite linear;
+  transform: rotateX(60deg) rotateZ(-30deg); /* Initial tilt for a good view */
+}
+
+@keyframes rotate-scene {
+  0% {
+    transform: rotateX(60deg) rotateZ(-30deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(60deg) rotateZ(-30deg) rotateY(360deg);
+  }
+}
+
+.plane {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vw;
+  transform-style: preserve-3d;
+  background-image: radial-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px);
+  background-size: 25px 25px;
+  border: 1px solid rgba(139, 92, 246, 0.08);
+  box-sizing: border-box;
+}
+
+/* Position planes at different depths (z-axis) */
+.plane-1 { transform: translate(-50%, -50%) translateZ(-400px); }
+.plane-2 { transform: translate(-50%, -50%) translateZ(-300px); }
+.plane-3 { transform: translate(-50%, -50%) translateZ(-200px); }
+.plane-4 { transform: translate(-50%, -50%) translateZ(-100px); }
+.plane-5 { transform: translate(-50%, -50%) translateZ(0px); }
+.plane-6 { transform: translate(-50%, -50%) translateZ(100px); }
+.plane-7 { transform: translate(-50%, -50%) translateZ(200px); }
+.plane-8 { transform: translate(-50%, -50%) translateZ(300px); }
+.plane-9 { transform: translate(-50%, -50%) translateZ(400px); }
+.plane-10 { transform: translate(-50%, -50%) translateZ(500px); }
+
+/* Add some variation to some planes */
+.plane-3, .plane-7 {
+  background-image: radial-gradient(rgba(99, 102, 241, 0.2) 1px, transparent 1px);
+  border-color: rgba(99, 102, 241, 0.1);
+}
+
+.plane-5 {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+   border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Parallax Starfield --- */
+@keyframes animate-stars {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+#stars-small, #stars-medium, #stars-large {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    animation-name: animate-stars;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* To create a seamless loop, we use a pseudo-element to clone the stars below */
+#stars-small:after, #stars-medium:after, #stars-large:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 100%;
+    height: 100%;
+    box-shadow: inherit;
+}
+
+#stars-small {
+    height: 1px;
+    width: 1px;
+    box-shadow: 739px 1585px #FFF, 1269px 748px #FFF, 1459px 1238px #FFF, 892px 1394px #FFF, 129px 1121px #FFF, 1332px 1081px #FFF, 1324px 1704px #FFF, 1354px 1134px #FFF, 475px 146px #FFF, 1691px 1999px #FFF, 1297px 1152px #FFF, 192px 1032px #FFF, 1656px 1276px #FFF, 491px 1869px #FFF, 1684px 1827px #FFF, 1422px 197px #FFF, 915px 1284px #FFF, 219px 145px #FFF, 1930px 1427px #FFF, 730px 1438px #FFF, 127px 1932px #FFF, 532px 432px #FFF, 1139px 1419px #FFF, 1500px 398px #FFF, 646px 1713px #FFF, 147px 1913px #FFF, 1900px 1866px #FFF, 1435px 1845px #FFF, 747px 1406px #FFF, 1591px 1184px #FFF;
+    animation-duration: 150s;
+}
+
+#stars-medium {
+    height: 2px;
+    width: 2px;
+    box-shadow: 1957px 1939px #FFF, 218px 1039px #FFF, 889px 1891px #FFF, 1713px 45px #FFF, 1415px 1748px #FFF, 1852px 1018px #FFF, 542px 1968px #FFF, 1102px 1195px #FFF, 1378px 1563px #FFF, 1928px 1251px #FFF, 692px 1279px #FFF, 595px 120px #FFF, 729px 1155px #FFF, 1238px 1289px #FFF, 126px 161px #FFF, 1287px 531px #FFF, 117px 873px #FFF, 1357px 1983px #FFF, 100px 1515px #FFF, 1301px 1411px #FFF;
+    animation-duration: 100s;
+}
+
+#stars-large {
+    height: 3px;
+    width: 3px;
+    box-shadow: 1754px 1205px #FFF, 1832px 1109px #FFF, 621px 1300px #FFF, 1039px 388px #FFF, 132px 1814px #FFF, 946px 921px #FFF, 1646px 1839px #FFF, 1422px 556px #FFF, 1239px 1318px #FFF, 1475px 178px #FFF;
+    animation-duration: 50s;
+}
+
+/* --- Shooting Star Effect --- */
+.shooting-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(25deg);
+}
+
+@keyframes shooting-star-animation {
+  0% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+.star {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(-45deg, rgba(167, 139, 250, 1), rgba(167, 139, 250, 0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.8));
+  animation-name: shooting-star-animation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.star:nth-child(1) {
+  top: 10%;
+  left: 0;
+  width: 250px;
+  animation-delay: 0s;
+  animation-duration: 3.5s;
+}
+
+.star:nth-child(2) {
+  top: 30%;
+  left: 0;
+  width: 150px;
+  animation-delay: 1.2s;
+  animation-duration: 2.8s;
+}
+
+.star:nth-child(3) {
+  top: 55%;
+  left: 0;
+  width: 200px;
+  animation-delay: 2.5s;
+  animation-duration: 4s;
+}
+
+.star:nth-child(4) {
+  top: 80%;
+  left: 0;
+  width: 180px;
+  animation-delay: 4.1s;
+  animation-duration: 3.2s;
+}
+
+.star:nth-child(5) {
+  top: 95%;
+  left: 0;
+  width: 300px;
+  animation-delay: 5.5s;
+  animation-duration: 5s;
+}
