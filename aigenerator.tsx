@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { GoogleGenAI, Type } from '@google/genai';
-import { AppConfig } from '../types';
-import { GOOGLE_FONTS_OPTIONS, INITIAL_CONFIG } from '../constants';
+import { AppConfig } from './types';
+import { GOOGLE_FONTS_OPTIONS, INITIAL_CONFIG } from './constants';
 
 interface AiGeneratorProps {
   setConfig: React.Dispatch<React.SetStateAction<AppConfig>>;

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import Sidebar from './components/Sidebar';
-import OutputPanel from './components/OutputPanel';
+import Sidebar from './sidebar';
+import OutputPanel from './outputpanel';
 import { AppConfig } from './types';
 import { INITIAL_CONFIG } from './constants';
 

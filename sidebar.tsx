@@ -1,7 +1,7 @@
 import React from 'react';
-import { AppConfig, UserStyle } from '../types';
-import AiGenerator from './AiGenerator';
-import UserStyleEditor from './UserStyleEditor';
+import { AppConfig, UserStyle } from './types';
+import AiGenerator from './aigenerator';
+import UserStyleEditor from './userstyleeditor';
 
 interface SidebarProps {
   config: AppConfig;

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import CodeBlock from './CodeBlock';
+import CodeBlock from './codeblock';
 
 interface OutputPanelProps {
   cssCode: string;
