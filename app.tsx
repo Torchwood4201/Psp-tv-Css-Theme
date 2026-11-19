@@ -992,9 +992,13 @@ ${featureCreationCalls}`;
 
 // FIX: The component was missing a return statement, causing a compilation error.
   return (
-    <div className="grid grid-cols-[450px_1fr] h-screen bg-gray-800 text-gray-200 font-sans">
-      <Sidebar config={config} setConfig={setConfig} onReset={handleReset} />
-      <OutputPanel cssCode={cssCode} jsCode={jsCode} motdHtml={motdHtml} />
+    <div className="app-shell">
+      <aside className="sidebar-shell">
+        <Sidebar config={config} setConfig={setConfig} onReset={handleReset} />
+      </aside>
+      <main className="workspace-shell">
+        <OutputPanel config={config} cssCode={cssCode} jsCode={jsCode} motdHtml={motdHtml} />
+      </main>
     </div>
   );
 };

@@ -99,8 +99,11 @@ const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, onReset }) => {
   };
 
   return (
-    <div className="p-6 bg-gray-900/60 backdrop-blur-xl border-r border-gray-700/50 h-full overflow-y-auto">
-      <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">Cytube Style Generator</h2>
+    <div className="sidebar-inner">
+      <div className="brand-row">
+        <div className="brand-lockup"><div className="brand-icon">P</div><div><strong>PSP-TV</strong><span>STYLE LAB</span></div></div>
+        <div className="save-dot" title="Changes update live"></div>
+      </div>
       
       <AiGenerator setConfig={setConfig} />
 

@@ -17,7 +17,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language }) => {
   }, [code]);
 
   return (
-    <div className="relative bg-gray-900/70 rounded-lg group border border-gray-700/50">
+    <div className="code-block relative group">
       <button
         onClick={handleCopy}
         className="absolute top-3 right-3 p-2 text-sm font-semibold text-gray-400 bg-gray-800/80 rounded-md opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all hover:bg-gray-700/80 hover:text-gray-200"
