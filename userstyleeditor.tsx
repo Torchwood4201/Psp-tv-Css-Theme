@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { UserStyle } from '../types';
+import { UserStyle } from './types';
 
 interface UserStyleEditorProps {
   userStyle: UserStyle;
